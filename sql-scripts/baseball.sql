@@ -370,3 +370,7 @@ INNER JOIN baseball.player P on R.playerID = P.ID
 SELECT player.ID, player.firstName, player.lastName, batting.playerID, batting.battingAvg FROM player INNER JOIN batting ON player.ID = batting.playerID;
 SELECT * from player INNER JOIN roster ON player.ID = roster.playerID;
 SELECT player.firstName, player.lastName, roster.position, team.teamName from player INNER JOIN roster ON player.ID = roster.playerID INNER JOIN team ON team.ID = roster.teamID WHERE team.teamName = 'Boston Red Sox';
+SELECT player.ID, player.firstName, player.lastName, batting.battingAvg from player LEFT JOIN batting ON player.ID = batting.playerID;
+SELECT team.teamName, roster.playerID from team LEFT JOIN roster ON team.ID = roster.teamID;
+SELECT team.teamName, roster.playerID FROM team INNER JOIN roster ON team.ID = roster.teamID;
+SELECT team.teamName, roster.playerID FROM team LEFT JOIN roster ON team.ID = roster.teamID WHERE roster.ID IS NULL;
